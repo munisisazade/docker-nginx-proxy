@@ -1,7 +1,5 @@
-version: "3"
-
 services:
-  # Base nginx configuration for all projects 
+  # Base nginx configuration for all projects
   nginx-proxy:
     image: jwilder/nginx-proxy
     container_name: nginx-proxy
@@ -10,8 +8,8 @@ services:
     volumes:
       - /var/run/docker.sock:/tmp/docker.sock:ro
       - ./nginx.conf:/etc/nginx/nginx.conf
-  
+
 networks:
   default:
-    external:
-      name: nginx-proxy
+    external: true
+    name: nginx-proxy
